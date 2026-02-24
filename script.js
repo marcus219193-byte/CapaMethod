@@ -18,13 +18,22 @@ ram.oninput = function() {
   ramValor.innerText = this.value + " GB";
 };
 
-// Mostrar campo DPI
-const dpiOption = document.getElementById("dpiOption");
-const dpiContainer = document.getElementById("dpiContainer");
+// Sistema de DPI
+const dpiLevel = document.getElementById("dpiLevel");
 
-dpiOption.onchange = function() {
-  dpiContainer.style.display = this.value === "sim" ? "block" : "none";
-};
+function sugerirDPI(modelo, nivel) {
+  let baseDPI;
+
+  if (nivel === "baixa") baseDPI = 400;
+  else if (nivel === "media") baseDPI = 480;
+  else if (nivel === "alta") baseDPI = 600;
+
+  // Ajuste baseado no modelo
+  if (modelo.includes("Galaxy A05")) baseDPI -= 20;
+  if (modelo.includes("iPhone")) baseDPI += 20;
+
+  return baseDPI;
+}
 
 // Calcular sensibilidade
 function calcularSensibilidade(ram, dpi) {
@@ -45,8 +54,7 @@ function gerarPerfil() {
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
   const ramValue = parseInt(document.getElementById("ram").value);
-  const usarDPI = document.getElementById("dpiOption").value;
-  const dpi = usarDPI === "sim" ? parseInt(document.getElementById("dpi").value) : null;
+  const nivelDPI = document.getElementById("dpiLevel").value;
   const mira = document.getElementById("mira").value;
 
   if (modelo === "") {
@@ -54,13 +62,16 @@ function gerarPerfil() {
     return;
   }
 
-  const sensi = calcularSensibilidade(ramValue, dpi);
+  const dpiFinal = sugerirDPI(modelo, nivelDPI);
+  const sensi = calcularSensibilidade(ramValue, dpiFinal);
 
-  document.getElementById("resultado").innerHTML = `
+  const resultadoDiv = document.getElementById("resultado");
+  resultadoDiv.innerHTML = `
     <div class="card">
       <h3>Perfil Personalizado</h3>
       <p><strong>Dispositivo:</strong> ${marca} ${modelo}</p>
       <p><strong>Mira selecionada:</strong> ${mira}</p>
+      <p><strong>DPI sugerida:</strong> ${dpiFinal}</p>
       <hr>
       <p>Geral: ${sensi.geral}</p>
       <p>Ponto Vermelho: ${sensi.redDot}</p>
@@ -69,4 +80,8 @@ function gerarPerfil() {
       <p>AWM: ${sensi.awm}</p>
     </div>
   `;
+
+  // Animação fade-in
+  const card = resultadoDiv.querySelector(".card");
+  setTimeout(() => { card.classList.add("show"); }, 50);
 }
