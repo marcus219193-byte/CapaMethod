@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CapaMethod PRO</title>
+  <title>CapaMethod PRO 🕷</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Fundo animado -->
+<!-- Fundo animado estilo Homem-Aranha -->
 <div class="bg-animation"></div>
 
 <!-- Login -->
 <div id="login">
-  <h1>CapaMethod PRO</h1>
+  <h1>CapaMethod PRO 🕷</h1>
   <p>Área exclusiva para membros</p>
   <input type="password" id="senha" placeholder="Digite sua senha">
   <button onclick="verificarSenha()">Entrar</button>
@@ -23,7 +23,7 @@
 <!-- Conteúdo PRO -->
 <div id="conteudo" style="display:none;">
   <div class="container">
-    <h1>Gerador de Perfil PRO</h1>
+    <h1>Gerador de Perfil PRO 🕷</h1>
 
     <label>Marca do celular:</label>
     <select id="marca">
@@ -34,7 +34,10 @@
     </select>
 
     <label>Modelo do celular:</label>
-    <input type="text" id="modelo" placeholder="Ex: Galaxy A05">
+    <div class="input-wrapper">
+      <input type="text" id="modelo" placeholder="Ex: Galaxy A05">
+      <button type="button" onclick="toggleModelo()">👁️</button>
+    </div>
 
     <label>Memória RAM:</label>
     <input type="range" min="2" max="16" value="4" id="ram">
@@ -55,15 +58,7 @@
       </select>
     </div>
 
-    <label>Mira:</label>
-    <select id="mira">
-      <option>Ponto Vermelho</option>
-      <option>2x</option>
-      <option>4x</option>
-      <option>AWM</option>
-    </select>
-
-    <button onclick="gerarPerfil()">Gerar Perfil</button>
+    <button onclick="gerarPerfil()">Gerar Perfil Completo 🕷</button>
 
     <div id="resultado"></div>
   </div>
@@ -71,4 +66,4 @@
 
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
