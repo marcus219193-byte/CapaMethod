@@ -1,4 +1,3 @@
-/* Corpo base */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,7 +6,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Fundo animado */
 .bg-animation {
   position: fixed;
   width: 100%;
@@ -24,7 +22,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Login */
 #login {
   text-align: center;
   padding-top: 100px;
@@ -55,7 +52,6 @@ body {
   box-shadow: 0 0 30px #00ff88, 0 0 10px #00ccff;
 }
 
-/* Conteúdo PRO */
 .container {
   text-align: center;
   padding: 50px 20px;
@@ -81,7 +77,6 @@ button:hover {
   transition: 0.2s;
 }
 
-/* Resultado animado */
 #resultado .card {
   background: #111;
   padding: 20px;
