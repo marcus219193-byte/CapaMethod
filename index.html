@@ -40,16 +40,23 @@
     <input type="range" min="2" max="16" value="4" id="ram">
     <span id="ramValor">4 GB</span>
 
-    <label>Nível de DPI:</label>
-    <select id="dpiLevel">
-      <option value="baixa">Baixa</option>
-      <option value="media">Média</option>
-      <option value="alta">Alta</option>
+    <label>Usar DPI personalizado?</label>
+    <select id="dpiOption">
+      <option value="nao">Não</option>
+      <option value="sim">Sim</option>
     </select>
+
+    <div id="dpiContainer" style="display:none;">
+      <label>Nível de DPI:</label>
+      <select id="dpiLevel">
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+      </select>
+    </div>
 
     <label>Mira:</label>
     <select id="mira">
-      <option>Geral</option>
       <option>Ponto Vermelho</option>
       <option>2x</option>
       <option>4x</option>
