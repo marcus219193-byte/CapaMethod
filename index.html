@@ -3,57 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CapaMethod | Método de Headshot</title>
+  <title>CapaMethod PRO</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
-  <h1>CapaMethod</h1>
-  <p>Método inteligente para dominar sua mira</p>
-  <a href="#free" class="btn-primary">Testar Versão Grátis</a>
-</header>
+<!-- Fundo animado -->
+<div class="bg-animation"></div>
 
-<section id="free" class="card">
-  <h2>Gerador Gratuito</h2>
+<!-- Login / senha -->
+<div id="login">
+  <h1>CapaMethod PRO</h1>
+  <p>Área exclusiva para membros</p>
+  <input type="password" id="senha" placeholder="Digite sua senha">
+  <button onclick="verificarSenha()">Entrar</button>
+  <p id="erro"></p>
+</div>
 
-  <label>RAM do celular</label>
-  <select id="ram">
-    <option value="2">2GB</option>
-    <option value="4">4GB</option>
-    <option value="6">6GB+</option>
-  </select>
+<!-- Conteúdo premium -->
+<div id="conteudo" style="display:none;">
+  <div class="container">
+    <h1>Gerador de Perfil PRO</h1>
 
-  <label>Estilo de jogo</label>
-  <select id="style">
-    <option value="rush">Rush</option>
-    <option value="mid">Médio</option>
-    <option value="sniper">Sniper</option>
-  </select>
+    <label>Marca do celular:</label>
+    <select id="marca">
+      <option>Samsung</option>
+      <option>Xiaomi</option>
+      <option>Motorola</option>
+      <option>iPhone</option>
+    </select>
 
-  <button onclick="generateFree()">Gerar Sensibilidade</button>
+    <label>Modelo do celular:</label>
+    <input type="text" id="modelo" placeholder="Ex: Galaxy A05">
 
-  <div id="result"></div>
-</section>
+    <label>Memória RAM:</label>
+    <input type="range" min="2" max="16" value="4" id="ram">
+    <span id="ramValor">4 GB</span>
 
-<section class="card premium">
-  <h2>CapaMethod PRO</h2>
-  <ul>
-    <li>Gerador avançado até 200</li>
-    <li>Ajuste por RAM e DPI</li>
-    <li>Método estruturado 7 dias</li>
-    <li>Configuração estratégica de HUD</li>
-  </ul>
+    <label>Usar DPI personalizado?</label>
+    <select id="dpiOption">
+      <option value="nao">Sem DPI</option>
+      <option value="sim">Com DPI</option>
+    </select>
 
-  <a href="COLE_AQUI_SEU_LINK_DA_KIWIFY" class="btn-gold">
-    Desbloquear PRO
-  </a>
-</section>
+    <div id="dpiContainer" style="display:none;">
+      <label>DPI:</label>
+      <input type="number" id="dpi" placeholder="Ex: 480">
+    </div>
 
-<footer>
-  <p>Projeto independente. Não afiliado oficialmente ao Free Fire.</p>
-</footer>
+    <label>Mira:</label>
+    <select id="mira">
+      <option>Geral</option>
+      <option>Ponto Vermelho</option>
+      <option>2x</option>
+      <option>4x</option>
+      <option>AWM</option>
+    </select>
+
+    <button onclick="gerarPerfil()">Gerar Perfil</button>
+
+    <div id="resultado"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
