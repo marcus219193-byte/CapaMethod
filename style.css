@@ -1,38 +1,68 @@
+/* Estilo base */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #000000, #1a1a1a);
+  background: #000;
   color: white;
+  overflow-x: hidden;
+}
+
+/* Fundo animado */
+.bg-animation {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000, #111, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Login */
+#login {
   text-align: center;
+  padding-top: 100px;
 }
 
-.hero {
-  padding: 60px 20px;
+#login input {
+  padding: 10px;
+  width: 250px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
 }
 
-.hero h1 {
-  font-size: 42px;
-  color: #ff0033;
+#login button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #00ff88;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.card {
-  background: #111;
-  margin: 20px;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255,0,51,0.3);
+/* Conteúdo PRO */
+.container {
+  text-align: center;
+  padding: 50px 20px;
 }
 
 select, input, button {
-  padding: 10px;
   margin: 10px;
+  padding: 10px;
+  width: 250px;
   border-radius: 8px;
   border: none;
 }
 
 button {
-  background: #ff0033;
-  color: white;
+  background: #00ff88;
   font-weight: bold;
   cursor: pointer;
 }
@@ -42,25 +72,13 @@ button:hover {
   transition: 0.2s;
 }
 
-.btn-primary {
-  background: #ff0033;
-  padding: 12px 25px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-}
-
-.btn-gold {
-  background: gold;
-  padding: 12px 25px;
-  border-radius: 8px;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer {
+/* Resultado com visual premium */
+#resultado .card {
+  background: #111;
   padding: 20px;
-  font-size: 12px;
-  color: #aaa;
+  border-radius: 12px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0,255,150,0.3);
+  text-align: left;
 }
