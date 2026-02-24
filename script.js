@@ -24,6 +24,12 @@ dpiOption.onchange = function() {
   dpiContainer.style.display = this.value === "sim" ? "block" : "none";
 };
 
+// Mostrar modelo digitado
+function toggleModelo() {
+  const modeloInput = document.getElementById("modelo");
+  if (modeloInput.type === "text") modeloInput.type = "text"; 
+}
+
 // Sugerir DPI
 function sugerirDPI(modelo, nivel) {
   let baseDPI;
@@ -37,7 +43,7 @@ function sugerirDPI(modelo, nivel) {
   return baseDPI;
 }
 
-// Sensibilidade arredondada
+// Sensibilidade inteira
 function calcularSensibilidade(ram, dpi) {
   let base = 120 - (ram * 2);
   if (dpi) base -= dpi / 100;
@@ -50,39 +56,32 @@ function calcularSensibilidade(ram, dpi) {
   };
 }
 
-// Gerar perfil
+// Gerar perfil completo
 function gerarPerfil() {
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
   const ramValue = parseInt(document.getElementById("ram").value);
   const usarDPI = document.getElementById("dpiOption").value;
   const nivelDPI = document.getElementById("dpiLevel").value;
-  const mira = document.getElementById("mira").value;
 
-  if (modelo === "") { alert("Digite o modelo do celular"); return; }
+  if (!modelo) { alert("Digite o modelo do celular"); return; }
 
   const dpiFinal = usarDPI === "sim" ? sugerirDPI(modelo, nivelDPI) : null;
   const sensi = calcularSensibilidade(ramValue, dpiFinal);
 
-  const resultadoDiv = document.getElementById("resultado");
-
-  // Apenas a mira selecionada
-  let conteudoMira = "";
-  if (mira === "Ponto Vermelho") conteudoMira += `<p>Ponto Vermelho: ${sensi.redDot}</p>`;
-  if (mira === "2x") conteudoMira += `<p>2x: ${sensi.mira2x}</p>`;
-  if (mira === "4x") conteudoMira += `<p>4x: ${sensi.mira4x}</p>`;
-  if (mira === "AWM") conteudoMira += `<p>AWM: ${sensi.awm}</p>`;
-
-  resultadoDiv.innerHTML = `
+  document.getElementById("resultado").innerHTML = `
     <div class="card">
-      <h3>Perfil Personalizado</h3>
+      <h3>Perfil Completo 🕷</h3>
       <p><strong>Dispositivo:</strong> ${marca} ${modelo}</p>
       ${usarDPI === "sim" ? `<p><strong>DPI sugerida:</strong> ${dpiFinal}</p>` : ""}
       <hr>
-      ${conteudoMira}
+      <p>Ponto Vermelho: ${sensi.redDot}</p>
+      <p>2x: ${sensi.mira2x}</p>
+      <p>4x: ${sensi.mira4x}</p>
+      <p>AWM: ${sensi.awm}</p>
     </div>
   `;
 
-  const card = resultadoDiv.querySelector(".card");
-  setTimeout(() => { card.classList.add("show"); }, 50);
+  const card = document.querySelector(".card");
+  setTimeout(() => card.classList.add("show"), 50);
 }
