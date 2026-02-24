@@ -11,7 +11,7 @@
 <!-- Fundo animado -->
 <div class="bg-animation"></div>
 
-<!-- Login / senha -->
+<!-- Login -->
 <div id="login">
   <h1>CapaMethod PRO</h1>
   <p>Área exclusiva para membros</p>
@@ -20,7 +20,7 @@
   <p id="erro"></p>
 </div>
 
-<!-- Conteúdo premium -->
+<!-- Conteúdo PRO -->
 <div id="conteudo" style="display:none;">
   <div class="container">
     <h1>Gerador de Perfil PRO</h1>
@@ -40,16 +40,12 @@
     <input type="range" min="2" max="16" value="4" id="ram">
     <span id="ramValor">4 GB</span>
 
-    <label>Usar DPI personalizado?</label>
-    <select id="dpiOption">
-      <option value="nao">Sem DPI</option>
-      <option value="sim">Com DPI</option>
+    <label>Nível de DPI:</label>
+    <select id="dpiLevel">
+      <option value="baixa">Baixa</option>
+      <option value="media">Média</option>
+      <option value="alta">Alta</option>
     </select>
-
-    <div id="dpiContainer" style="display:none;">
-      <label>DPI:</label>
-      <input type="number" id="dpi" placeholder="Ex: 480">
-    </div>
 
     <label>Mira:</label>
     <select id="mira">
@@ -68,4 +64,4 @@
 
 <script src="script.js"></script>
 </body>
-  </html>
+</html>
